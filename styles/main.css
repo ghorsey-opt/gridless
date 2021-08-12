@@ -1,9 +1,153 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Georama&family=Montserrat&display=swap');
 :root {
-  font-family: 'Montserrat', sans-serif
+  /* fonts */ 
+  --font-basic: 'Montserrat', sans-serif;
+  --font-headings: 'Georama', sans-serif;
+  --ratio: 1.61803399; /* golden ratio */
+
+  /* colors */
+  --color-dark: #050505;
+  --color-darkish: #404040;
+  --color-lightish: #e6e6e6;
+  --color-light: #fafafa;
+  --color-mid: grey;
+
+  /* sizes */
+  --s-5: calc(var(--s0) / var(--ratio) / var(--ratio) / var(--ratio) / var(--ratio) / var(--ratio));
+  --s-4: calc(var(--s0) / var(--ratio) / var(--ratio) / var(--ratio) / var(--ratio));
+  --s-3: calc(var(--s0) / var(--ratio) / var(--ratio) / var(--ratio));
+  --s-2: calc(var(--s0) / var(--ratio) / var(--ratio));
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s0: 1rem;
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s0) * var(--ratio) * var(--ratio));
+  --s3: calc(var(--s0) * var(--ratio) * var(--ratio) * var(--ratio));
+  --s4: calc(var(--s0) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio));
+  --s5: calc(var(--s0) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio));
+
+  /* text */
+  --measure: 65ch; /* width should be 65 chars (or width of 0 in current font) */
+  --line-height: var(--ratio);
+  --line-height-small: calc(0.8 * var(--line-height));
+
+  /* borders */
+  --border-thick: var(--s-2);
+  --border-thin: var(--s-5);
+
+
+  /* defaults */
+  font-family: var(--font-basic);
+  line-height: var(--line-height);
+
+}
+
+*, :before, :after {
+  box-sizing: border-box;
+  background-color: inherit;
+  font-family: inherit;
+  color: inherit;
+  overflow-wrap: break-wrod;
+  margin: 0;
+  padding: 0;
+  border: 0 solid;
+}
+
+footer, header, main, nav {
+  display: block;
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Lato', sans-serif
+  line-height: var(--line-height-small);
+  font-family: var(--font-headings);
+  line-height: var(--line-height-small);
+}
 
+header {
+  color: white;
+  border: chartreuse var(--border-thin) dashed;
+  display: flex;
+  justify-content: space-between;
+  height: var(--s3);
+  padding: 0 calc(.25vw + var(--s-3))
+}
+
+footer {
+  padding: 0 calc(.25vw + var(--s-3));
+  background-color: plum;
+  min-height: var(--s2);
+}
+
+aside {
+  background-color: green;
+  flex-basis: var(--s5);
+  flex-grow: 1;
+}
+
+article {
+  background-color: yellow;
+  flex-basis: 0;
+  flex-grow: 999;
+  min-width: 75%;
+}
+
+main {
+  border: purple var(--border-thin) dashed;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: calc(100vh - var(--s2) - var(--s3)); 
+  max-width: calc(var(--measure) + var(--s5));
+  margin: 0 auto;
+}
+
+nav {
+  background-color: hsl(240, 75%, 50%);
+  height: 100%;
+}
+
+
+#brand {
+  background-color: gray;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--s-1);
+}
+
+#brand > a {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+nav > ul {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+nav > ul > li {
+  list-style: none;
+  height: 100%;
+  min-width: var(--s4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+nav > ul > li:hover {
+  background-color: hsl(240, 75%, 75%);
+}
+
+nav > ul > li.active {
+  background-color: hsl(240, 100%, 75%);
+}
+
+@media screen and (max-width: 51rem) {
+  nav {
+    display: none;
+  }
+}
 
