@@ -24,6 +24,7 @@
   --s3: calc(var(--s0) * var(--ratio) * var(--ratio) * var(--ratio));
   --s4: calc(var(--s0) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio));
   --s5: calc(var(--s0) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio));
+  --s6: calc(var(--s0) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio));
 
   /* text */
   --measure: 65ch; /* width should be 65 chars (or width of 0 in current font) */
@@ -79,7 +80,7 @@ footer {
 
 aside {
   border: green var(--border-thin) dashed;
-  flex-basis: var(--s5);
+  flex-basis: var(--s6);
   flex-grow: 1;
 }
 
@@ -87,18 +88,19 @@ article {
   border: yellow var(--border-thin) dashed;
   flex-basis: 0;
   flex-grow: 999;
-  min-width: 75%;
+  min-width: 50%;
   max-width: var(--measure);
-  padding: 0 var(--s1);
 }
 
 main {
   border: purple var(--border-thin) dashed;
   display: flex;
+  gap: var(--s1);
   flex-wrap: wrap;
   min-height: calc(100vh - var(--s2) - var(--s3) - var(--s2)); 
-  max-width: calc(var(--measure) + var(--s5));
-  margin: var(--s2) auto 0 auto;
+  max-width: calc(var(--measure) + var(--s6) + var(--border-thin) + var(--s1));
+
+  margin: 0 auto;
 }
 
 nav {
