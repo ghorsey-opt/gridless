@@ -200,6 +200,10 @@ button[aria-expanded=true] path {
     width: 100%;
   }
 
+  nav > ul {
+    flex-wrap: wrap
+  }
+
   nav > ul > li {
     width: 100%;
     min-width:auto;
