@@ -10,6 +10,13 @@
       <div id="brand">
         <a href="javascript:void()">Company Logo</a>
       </div>
+
+        <button id="hamburger-menu" onclick="this.getAttribute('aria-expanded') === 'false' ? this.setAttribute('aria-expanded', 'true') : this.setAttribute('aria-expanded', 'false')" aria-expanded="false">
+          <svg id="hamburger" focusable="false" viewBox="0 0 32 32">
+            <path d="M3,3 29,3 M3,16 29,16 M3,29 29,29"></path>
+          </svg> Menu
+        </button>
+
       <nav>
         <ul>
           <li class="active"><a href="javascript:void()">One</a></li>

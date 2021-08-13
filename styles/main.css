@@ -67,6 +67,7 @@ header {
   color: white;
   border: chartreuse var(--border-thin) dashed;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   height: var(--s3);
   padding: 0 calc(.25vw + var(--s-3))
@@ -101,6 +102,7 @@ main {
   max-width: calc(var(--measure) + var(--s6) + var(--border-thin) + var(--s1));
 
   margin: 0 auto;
+  padding: 0 calc(.25vw + var(--s-3));
 }
 
 nav {
@@ -156,9 +158,51 @@ nav > ul > li.active {
   background-color: hsl(240, 100%, 75%);
 }
 
+button {
+    font-size: var(--s1);
+    margin-top: var(--s1);
+    font-weight: 700;
+    text-align: right;
+    color: var(--color-dark);
+    display: none;
+    width: auto;
+}
+
+button path {
+    transition: d .25s
+}
+
+#hamburger {
+    width: .75em;
+    height: .75em;
+    stroke: currentColor;
+    stroke-width: 4;
+    fill: none;
+    text-decoration-skip: objects
+}
+button[aria-expanded=true] path {
+    d: path("M3,3 29,29 M16,16 16,16 M3,29 29,3")
+}
+
 @media screen and (max-width: 52rem) {
+  
   nav {
     display: none;
+  }
+
+  button {
+    display: block;
+  }
+
+  [aria-expanded=true] + nav {
+    display: block;
+    z-index: 1;
+    width: 100%;
+  }
+
+  nav > ul > li {
+    width: 100%;
+    min-width:auto;
   }
 }
 
